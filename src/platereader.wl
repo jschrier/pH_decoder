@@ -1,9 +1,12 @@
 (* ::Package:: *)
 
-
+importPlateReaderFile::usage = 
+	"importPlateReaderFile[file] reads a Molecular Devices plate reader text file output "<>
+	"and returns list of rules relating wavelength to measured absorbance for each sample"
 
 (* Read in a .txt output file from the Molecular Devices plate reader*)
-
+(* assumption:  this is a 96-well plate, and we throw away the temperature information *)
+(* we also don't read any of the other metadata in the file *)
 importPlateReaderFile[file_?FileExistsQ]:=With[
 	{d=Import[file, "Table", "FieldSeparators"->"\t", "RepeatedSeparators"->False]},
 	splitFile[d]
@@ -24,6 +27,4 @@ splitSpectra[d_List]:=With[
 	Assert[VectorQ[absorbances]];
 	(wavelength->absorbances)
 ]
-
-
 
