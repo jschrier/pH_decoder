@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# treat mathematica notebooks as binaries to suppress line-by-line diffing
+*.nb binary
