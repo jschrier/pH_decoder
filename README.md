@@ -4,6 +4,7 @@
 ## Research Notes
 * `2023.07.18_pH_spectroscopy.nb`: Exploratory comparison of [PCA](https://en.wikipedia.org/wiki/Principal_component_analysis) (+ regressor) versus [Earth Mover Distance]((https://en.wikipedia.org/wiki/Earth_mover%27s_distance)) for assigning pH, along with a statistical baseline of performance
 * `2023.07.19_emd_distance_distributions.nb`:  Plot of the [EMD](https://en.wikipedia.org/wiki/Earth_mover%27s_distance) spectral differences between all spectra and analysis of problem cases.
+* `2023.07.31_examples_for_maurer.nb`: Some resources for learning Mathematica (with a focus on data), and a minimal example of reading/parsing a plate-reader output file into a more convenient form for analysis.
 
 ## Utilities
 
