@@ -12,6 +12,13 @@ importPlateReaderFile[file_?FileExistsQ]:=With[
 	splitFile[d]
 ]
 
+
+normalizeSpectrum::usage = 
+	"normalizeSpectrum[v] reads a vector of spectra values, sets the minimum value to "<>
+	"zero and normalizes the entries so they total to one"
+	
+normalizeSpectrum[l_?VectorQ]:=Normalize[#, Total]&@(l-Min[l])
+
 (* divide the file into groups of entries measured at each wavelength *)
 splitFile[d_List]:=With[
 	{splits = Table[ d[[i;;i+7]], {i,4,Length[d]-9,9}]},
