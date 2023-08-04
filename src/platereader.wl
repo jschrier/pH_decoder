@@ -17,7 +17,12 @@ normalizeSpectrum::usage =
 	"normalizeSpectrum[v] reads a vector of spectra values, sets the minimum value to "<>
 	"zero and normalizes the entries so they total to one"
 	
-normalizeSpectrum[l_?VectorQ]:=Normalize[#, Total]&@(l-Min[l])
+normalizeSpectrum[l_?VectorQ]:=Normalize[#, Total]& @ zeroBaselineSpectrum[l]
+
+zeroBaselineSpectrum::usage = 
+	"zeroBaselineSpectrum[v] shifts a spectrum so that its minimum value is zero"
+	
+zeroBaselineSpectrum[l_?VectorQ]:= l-Min[l]
 
 (* divide the file into groups of entries measured at each wavelength *)
 splitFile[d_List]:=With[

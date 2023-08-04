@@ -19,10 +19,10 @@ importpHData[xlsxFile_?FileExistsQ]:=With[
 
 (* process entire list *)
 output[spectra_List, pH_List]:=
-	MapThread[output, {Transpose[spectra[[All, 2, All]]],pH}]
+	MapThread[output, {Transpose[spectra[[All, 2, All]]], pH}]
 	
 (*get data into a list of {spectra}-> pH values*)
-output[spectrum_List, pH_?NumericQ]:=(normalizeSpectrum[spectrum]->pH);
+output[spectrum_List, pH_?NumericQ]:=(spectrum -> pH);
 output[_, _]:=Nothing;  (*if there is not a Numeric pH value, then drop this entry from both sets *)
 
 
@@ -30,10 +30,10 @@ importDirectory::usage =
 	"importDirectory[d] reads a set of pH measurements from directory d, assuming the pH information is contained"<>
 	"in a single standard format *.xlsx file and spectra are in files named *plate$N.txt, where $N = 1,2,3, ..." 		
 
-importDirectory[d_?DirectoryQ]:=With[
+importDirectory[d_?DirectoryQ, normalizationFunction_:normalizeSpectrum]:=With[
 	{spectra = importPlateReaderFilesFromDirectory[d],
 	 pH = importpHData@First@FileNames["*.xlsx", d]},
-	 output[spectra, pH]
+	 (normalizationFunction[#1]->#2)& @@@ output[spectra, pH]
 ]
 
 	
