@@ -14,7 +14,12 @@
 * `2023.08.01_infer_amphiphile_pH.nb`: Try evaluating a ML model trained on the 898 example indicator+buffer solution dataset and apply to 10-carbon amphiphile data(`data/Amphiphile_Absorbance_test`);  results are relatively poor. We get better performance (half of the error) by training an optimal transport model on this data directly and using that for inference. *comment* later versions of `import_scripting.wl` will the manual import process needed for the ampiphile containing stocks; you'll need to normalize these spectra manualy
 * `2023.08.04_spectral_changes_in_presence_of_amphiphiles.nb`:  Some interactive plotting of the spectra with and without amphiphiles present, as well as the effects of various pre-processing steps on the data
 
+# Data
 
+- `data/2023*` - presumed useless because of hardware problem with the plate reader
+- `data/Amphiphile_Absorbacen_test` - ibid
+
+- `data/2024.07.15_pH_data.xlsx` -  Small example of UV/vis data comprised of 5x (vesicles + same volume), 10x (no vesicles + same volume)—“a set of duplicates”, and 5x (no vesicles + variable volume) at a few discrete pHs 
 
 ## Utilities
 
