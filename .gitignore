@@ -2,8 +2,12 @@ data/~$Copy of Universal Indicatory Array.xlsx
 data/2023_07_21_PH_Indicator/~$2023_07_21 pH Indicator Plates.xlsx
 data/~$*.xlsx
 
-# Ignore mac-housekeeping
+# Mac files
+**/. DS_Store
 .DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
